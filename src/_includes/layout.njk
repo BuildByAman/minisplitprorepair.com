@@ -28,18 +28,25 @@
   {# Fonts & Resource Preconnects #}
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preconnect" href="https://unpkg.com" crossorigin>
 
   {# Preload LCP Hero Image for immediate discovery #}
   <link rel="preload" as="image" href="/images/mini-split-hero.webp" fetchpriority="high">
 
-  {# Google Fonts (Poppins) with swap #}
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap">
+  {# Google Fonts (Poppins) - Non-render-blocking with font-display swap #}
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" media="print" onload="this.media='all'">
+  <noscript>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap">
+  </noscript>
 
-  {# Phosphor Icons CSS Font (Zero JS overhead, prevents CLS & forced reflow) #}
-  <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/regular/style.css">
+  {# Phosphor Icons CSS Font - Non-blocking #}
+  <link rel="preload" as="style" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/regular/style.css">
+  <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/regular/style.css" media="print" onload="this.media='all'">
+  <noscript>
+    <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/regular/style.css">
+  </noscript>
 
-  {# Stylesheet #}
+  {# Main Stylesheet #}
   <link rel="stylesheet" href="/css/globals.css">
 
   {# JSON-LD Schemas injected from page data #}
@@ -122,7 +129,7 @@
       </div>
 
       <div class="footer-col">
-        <h4>Our Services</h4>
+        <div class="footer-heading">Our Services</div>
         <ul>
           <li><a href="/services/emergency-mini-split-repair/"><i class="ph ph-siren"></i>Emergency Repair</a></li>
           <li><a href="/services/mini-split-installation/"><i class="ph ph-wrench"></i>Installation</a></li>
@@ -134,7 +141,7 @@
       </div>
 
       <div class="footer-col">
-        <h4>Quick Links</h4>
+        <div class="footer-heading">Quick Links</div>
         <ul>
           <li><a href="/"><i class="ph ph-house"></i>Home</a></li>
           <li><a href="/about/"><i class="ph ph-info"></i>About Us</a></li>
@@ -147,7 +154,7 @@
       </div>
 
       <div class="footer-col">
-        <h4>Top Service Areas</h4>
+        <div class="footer-heading">Top Service Areas</div>
         <ul>
           <li><a href="/texas/"><i class="ph ph-map-pin"></i>Texas</a></li>
           <li><a href="/california/"><i class="ph ph-map-pin"></i>California</a></li>
@@ -159,12 +166,12 @@
       </div>
 
       <div class="footer-col">
-        <h4>Contact Info</h4>
+        <div class="footer-heading">Contact Info</div>
         <div class="footer-contact-item">
           <span class="ci-icon"><i class="ph ph-phone-call"></i></span>
           <p>
             <a href="{{ site.PHONE_HREF }}">{{ site.PHONE }}</a><br>
-            <small style="color:rgba(255,255,255,0.35);font-size:10.5px">Same Day · 24/7 Emergency</small>
+            <small style="color:rgba(255,255,255,0.75);font-size:10.5px">Same Day · 24/7 Emergency</small>
           </p>
         </div>
         <div class="footer-contact-item">
