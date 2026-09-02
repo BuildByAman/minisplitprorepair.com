@@ -1,0 +1,435 @@
+---
+layout: layout.njk
+pagination:
+  data: cities
+  size: 1
+  alias: item
+permalink: "/{{ item.state.slug }}/{{ item.city.slug }}/index.html"
+eleventyComputed:
+  title: "Mini Split Repair in {{ item.city.name }}, {{ item.state.abbr }} | 24/7 Ductless Service"
+  description: "24/7 certified mini split repair and same day ductless service in {{ item.city.name }}, {{ item.state.abbr }}. Emergency AC fix, installation, cleaning & recharge. Call {{ site.PHONE }}."
+  canonical: "{{ site.DOMAIN }}/{{ item.state.slug }}/{{ item.city.slug }}/"
+  stateSlug: "{{ item.state.slug }}"
+  citySlug: "{{ item.city.slug }}"
+---
+
+{# ── Service Icon Map ──────────────────────────────────────────────────── #}
+{% set serviceIcons = {
+  'emergency-mini-split-repair': 'ph-siren',
+  'mini-split-installation': 'ph-wrench',
+  'mini-split-repair': 'ph-gear',
+  'mini-split-cleaning': 'ph-broom',
+  'mini-split-refrigerant-recharge': 'ph-snowflake',
+  'mini-split-not-cooling': 'ph-thermometer-cold',
+  'mini-split-not-heating': 'ph-thermometer-hot',
+  'multi-zone-mini-split': 'ph-house-line',
+  'commercial-mini-split': 'ph-buildings',
+  'mini-split-maintenance': 'ph-clipboard-text',
+  'mini-split-replacement': 'ph-arrows-counter-clockwise',
+  'ductless-ac-services': 'ph-wind'
+} %}
+
+{# ── Schemas ───────────────────────────────────────────────────────────── #}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "Mini Split Repair in {{ item.city.name }}, {{ item.state.abbr }} - {{ site.BRAND }}",
+  "description": "Certified mini split repair and ductless HVAC service in {{ item.city.name }}, {{ item.state.name }}. Same day service for emergency repairs, installations, deep cleaning, refrigerant recharge and seasonal maintenance.",
+  "telephone": "{{ site.PHONE }}",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "{{ item.city.name }}",
+    "addressRegion": "{{ item.state.abbr }}",
+    "postalCode": "{{ item.city.zip }}",
+    "addressCountry": "US"
+  },
+  "openingHoursSpecification": {
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+    "opens": "00:00",
+    "closes": "23:59"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "{{ ratingValue }}",
+    "reviewCount": "{{ reviewCount }}",
+    "bestRating": "5"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {% for faq in faqs %}
+    {
+      "@type": "Question",
+      "name": {{ faq.q | jsonld | safe }},
+      "acceptedAnswer": { "@type": "Answer", "text": {{ faq.a | jsonld | safe }} }
+    }{% if not loop.last %},{% endif %}
+    {% endfor %}
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "{{ site.DOMAIN }}/" },
+    { "@type": "ListItem", "position": 2, "name": "{{ item.state.name }}", "item": "{{ site.DOMAIN }}/{{ item.state.slug }}/" },
+    { "@type": "ListItem", "position": 3, "name": "{{ item.city.name }}", "item": "{{ site.DOMAIN }}/{{ item.state.slug }}/{{ item.city.slug }}/" }
+  ]
+}
+</script>
+
+{# ── Breadcrumb ────────────────────────────────────────────────────────── #}
+<div class="breadcrumb-bar">
+  <div class="container">
+    <div class="bc-inner">
+      <i class="ph ph-house" style="font-size:13px"></i>
+      <a href="/">Home</a>
+      <span class="bc-sep">›</span>
+      <a href="/{{ item.state.slug }}/">{{ item.state.name }}</a>
+      <span class="bc-sep">›</span>
+      <span>{{ item.city.name }}</span>
+    </div>
+  </div>
+</div>
+
+{# ── Banner ────────────────────────────────────────────────────────────── #}
+<div class="rs-banner">
+  <div class="container">
+    <div class="banner-row">
+      <div class="banner-content-col">
+        <div class="banner-content">
+          <div class="sub-label">
+            <i class="ph ph-map-pin" style="font-size:12px"></i>
+            {{ item.city.name }}, {{ item.state.abbr }} Ductless HVAC
+          </div>
+          <h1 class="title">
+            Mini Split Repair in <span>{{ item.city.name }}, {{ item.state.abbr }}</span> | {{ titleSuffix }}
+          </h1>
+          <p class="description">
+            Looking for expert mini split repair in {{ item.city.name }}, <a href="/{{ item.state.slug }}/" style="color:#38bdf8;text-decoration:none;font-weight:600">{{ item.state.name }}</a>? Reach {{ site.BRAND }} at
+            {{ site.PHONE }} for immediate dispatch. From <a href="/services/emergency-mini-split-repair/" style="color:#38bdf8;text-decoration:none;font-weight:600">24/7 emergency service</a> and
+            <a href="/services/mini-split-installation/" style="color:#38bdf8;text-decoration:none;font-weight:600">new ductless installations</a>, to <a href="/services/mini-split-refrigerant-recharge/" style="color:#38bdf8;text-decoration:none;font-weight:600">Freon recharges</a>,
+            deep coil cleanings, and multi-zone system tuning — our certified local technicians deliver 5-star mini split service in 
+            {{ item.city.name }}{% if item.city.county %}, {{ item.city.county }} County{% endif %} 24 hours a day.
+          </p>
+          <div class="btn-part">
+            <a class="readon orange" href="{{ site.PHONE_HREF }}">
+              <i class="ph ph-phone-call" style="font-size:17px"></i>
+              {{ site.PHONE }} · Call For Service
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{# ── Services Grid ─────────────────────────────────────────────────────── #}
+<div class="rs-services">
+  <div class="container">
+    <h2>Specialized Mini Split Repair & Service in {{ item.city.name }}, {{ item.state.abbr }}</h2>
+    <div class="services-row">
+      {% for svc in services %}
+      <div class="services-slider">
+        <div class="services-item">
+          <a href="/services/{{ svc.slug }}/" class="card-link" aria-label="View {{ svc.title }}"></a>
+          <div class="services-img">
+            <img src="/images/{{ svc.image }}" alt="{{ svc.title }}" width="400" height="250" loading="lazy" class="svc-card-img">
+          </div>
+          <div class="services-icon-bar">
+            <div class="svc-icon">
+              <i class="ph {{ serviceIcons[svc.slug] or 'ph-snowflake' }}"></i>
+            </div>
+          </div>
+          <div class="services-content">
+            <h3 class="title">
+              <a href="/services/{{ svc.slug }}/">{{ svc.title }} in {{ item.city.name }}, {{ item.state.abbr }}</a>
+            </h3>
+            <p class="description">
+              Looking for {{ svc.title | lower }} in {{ item.city.name }}, {{ item.state.abbr }}? Contact {{ site.BRAND }} at
+              {{ site.PHONE }} for certified ductless HVAC services. {{ svc.description.split('.')[0] }}.
+            </p>
+            <div class="services-btn">
+              <a href="{{ site.PHONE_HREF }}">
+                <span class="btn-text">Get Quote</span>
+                <span class="arrow-icon">
+                  <i class="ph ph-arrow-right" style="font-size:12px"></i>
+                </span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+{# ── Counter ───────────────────────────────────────────────────────────── #}
+<div class="rs-counter">
+  <div class="container">
+    <div class="counter-grid">
+      <div class="counter-list">
+        <div class="counter-text">
+          <div class="counter-icon">
+            <i class="ph ph-users-three" style="font-size:26px;color:#fff"></i>
+          </div>
+          <div class="counter-number">
+            <div class="count-row"><span class="rs-count">10,000</span><span class="prefix">+</span></div>
+            <h5 class="title">Certified Technicians</h5>
+          </div>
+        </div>
+      </div>
+      <div class="counter-list">
+        <div class="counter-text">
+          <div class="counter-icon">
+            <i class="ph ph-snowflake" style="font-size:26px;color:#fff"></i>
+          </div>
+          <div class="counter-number">
+            <div class="count-row"><span class="rs-count">250,000</span><span class="prefix">+</span></div>
+            <h5 class="title">Systems Serviced</h5>
+          </div>
+        </div>
+      </div>
+      <div class="counter-list">
+        <div class="counter-text">
+          <div class="counter-icon">
+            <i class="ph ph-star" style="font-size:26px;color:#fff"></i>
+          </div>
+          <div class="counter-number">
+            <div class="count-row"><span class="rs-count">50,000</span><span class="prefix">+</span></div>
+            <h5 class="title">5 Star Reviews</h5>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{# ── Who We Are ────────────────────────────────────────────────────────── #}
+<div class="rs-choose">
+  <div class="container">
+    <div class="choose-grid">
+      <div class="choose-img">
+        <img src="/images/mini-split-commercial.webp" alt="Professional mini split technicians in {{ item.city.name }}, {{ item.state.abbr }} equipped with top-tier tools for residential and commercial ductless HVAC services." width="580" height="400" loading="lazy">
+      </div>
+      <div>
+        <div class="sec-title4">
+          <div class="sub-line"></div>
+          <span class="sub-text">
+            <i class="ph ph-info" style="font-size:13px"></i>
+            Local HVAC Specialists
+          </span>
+          <h2>{{ item.city.name }}, {{ item.state.abbr }} Ductless HVAC Pros</h2>
+          
+          {% if contentVariation == 0 %}
+          <p>
+            Welcome to {{ site.BRAND }}, your premier local provider for mini split repair in {{ item.city.name }}, {{ item.state.name }}.
+            Whether your mini split is leaking water down the wall, blowing lukewarm air, flashing error codes,
+            or completely unresponsive — our certified HVAC specialists arrive promptly, diagnose the
+            root failure, and deliver dependable mini split service.
+          </p>
+          <p>
+            {{ localClimateText }} We provide same day mini split repair and 24/7 emergency response
+            so you never have to endure an uncomfortable indoor climate.
+          </p>
+          {% elif contentVariation == 1 %}
+          <p>
+            When you need reliable mini split service in {{ item.city.name }}, {{ site.BRAND }} is the trusted team to call.
+            We deliver precision mini split repair to homeowners and local commercial properties
+            throughout {{ item.city.name }} and the surrounding {{ item.state.name }} communities.
+          </p>
+          <p>
+            {{ localClimateText }} Our certified technicians utilize advanced diagnostic tools to pinpoint
+            and resolve complex ductless issues via guaranteed mini split repair.
+          </p>
+          {% else %}
+          <p>
+            At {{ site.BRAND }}, our certified HVAC professionals are dedicated to providing {{ item.city.name }}
+            residents with fast, lasting mini split repair. We handle everything
+            from an in-depth coil sanitization to complete multi-zone mini split service.
+          </p>
+          <p>
+            {{ localClimateText }} Call {{ site.PHONE }} now for a free mini split repair estimate
+            in {{ item.city.name }}, {{ item.state.abbr }}.
+          </p>
+          {% endif %}
+
+          <p>
+            We proudly serve {{ item.city.name }}{% if item.city.county %}, {{ item.city.county }} County{% endif %}, and nearby
+            {{ item.state.name }} neighborhoods with same day dispatch and 24/7 emergency readiness.
+          </p>
+        </div>
+        <div class="about-mini">
+          <div class="mini-card">
+            <h4><i class="ph ph-house-line" style="font-size:14px"></i> Residential</h4>
+            <p>Single and multi-zone mini split repair and installs in {{ item.city.name }}.</p>
+          </div>
+          <div class="mini-card">
+            <h4><i class="ph ph-buildings" style="font-size:14px"></i> Commercial</h4>
+            <p>Dependable commercial ductless HVAC solutions for {{ item.city.name }} businesses.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{# ── Why Choose Us ─────────────────────────────────────────────────────── #}
+<div class="rs-choose" style="background:var(--gray-bg)">
+  <div class="container">
+    <div class="choose-grid">
+      <div>
+        <div class="sec-title4">
+          <div class="sub-line"></div>
+          <span class="sub-text">
+            <i class="ph ph-shield-check" style="font-size:13px"></i>
+            Why Choose Us
+          </span>
+          <h2>Certified Mini Split Technicians in {{ item.city.name }}</h2>
+          <p>{{ whyChooseContent.p1 }}</p>
+          <p>{{ whyChooseContent.p2 }}</p>
+        </div>
+
+        {% if item.city.zipCodes and item.city.zipCodes.length > 0 %}
+        <div class="zip-section">
+          <h3><i class="ph ph-map-pin-line" style="font-size:15px"></i> Popular Zip Codes in {{ item.city.name }}</h3>
+          <div class="zip-wrap">
+            {% for z in item.city.zipCodes %}
+            <span class="zip-pill">{{ z }}</span>
+            {% endfor %}
+          </div>
+        </div>
+        {% elif item.city.zip %}
+        <div class="zip-section">
+          <h3><i class="ph ph-map-pin-line" style="font-size:15px"></i> Popular Zip Codes</h3>
+          <div class="zip-wrap">
+            <span class="zip-pill">{{ item.city.zip }}</span>
+          </div>
+        </div>
+        {% endif %}
+
+        <div style="margin-top:26px">
+          <a class="readon orange" href="{{ site.PHONE_HREF }}">
+            <i class="ph ph-phone-call" style="font-size:17px"></i>
+            {{ site.PHONE }} · Call For Fast Service
+          </a>
+        </div>
+      </div>
+      <div class="choose-img">
+        <img src="/images/mini-split-installation.webp" alt="Top-rated HVAC company in {{ item.city.name }}, {{ item.state.name }} specializing in emergency mini split repair and installation." width="580" height="400" loading="lazy">
+      </div>
+    </div>
+  </div>
+</div>
+
+{# ── Google Map ────────────────────────────────────────────────────────── #}
+<div class="rs-map">
+  <div class="container">
+    <div class="map-frame">
+      <iframe src="https://maps.google.com/maps?q={{ item.city.name | urlencode }}%2C%20{{ item.state.abbr | urlencode }}%20USA&t=&z=12&ie=UTF8&iwloc=&output=embed" width="100%" height="360" style="border:0;display:block" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Map of {{ item.city.name }}, {{ item.state.abbr }}"></iframe>
+    </div>
+  </div>
+</div>
+
+{# ── FAQ ───────────────────────────────────────────────────────────────── #}
+<div class="rs-faq">
+  <div class="container">
+    <h2 class="faq-inner-title">
+      <i class="ph ph-chat-circle-dots" style="font-size:26px;color:var(--primary);margin-right:8px;vertical-align:middle"></i>
+      Frequently Asked Questions About Mini Splits in {{ item.city.name }}, {{ item.state.abbr }}
+    </h2>
+    <div class="faq-grid">
+      <div class="faq-img">
+        <img src="/images/mini-split-emergency.webp" alt="Frequently asked mini split questions in {{ item.city.name }}. Certified HVAC technicians answering your repair and maintenance questions." width="580" height="400" loading="lazy">
+      </div>
+      <div class="accordion" itemscope itemtype="https://schema.org/FAQPage">
+        {% for faq in faqs %}
+        <div class="acc-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <button class="acc-question" itemprop="name" aria-expanded="{{ 'true' if loop.first else 'false' }}">
+            {{ faq.q }}
+            <span class="acc-icon">+</span>
+          </button>
+          <div class="acc-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p itemprop="text">{{ faq.a }}</p>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</div>
+
+{# ── Testimonials ──────────────────────────────────────────────────────── #}
+<div class="rs-testimonial">
+  <div class="container">
+    <div class="sec-inner-title">
+      <span class="sub-text">
+        <i class="ph ph-star" style="font-size:13px"></i>
+        Local Reviews
+      </span>
+      <h2>What Customers Say About Our Mini Split Service in {{ item.city.name }}</h2>
+    </div>
+    <div class="testi-grid">
+      {% for t in testimonials %}
+      <div class="testi-item">
+        <div class="testi-stars">★★★★★</div>
+        <p>"{{ t.text }}"</p>
+        <div class="testi-author">
+          <i class="ph ph-user-circle" style="font-size:14px;margin-right:4px"></i>
+          {{ t.author }}
+        </div>
+        <div class="testi-loc">{{ item.city.name }}, {{ item.state.abbr }}</div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+{# ── Nearby Cities ─────────────────────────────────────────────────────── #}
+{% if nearbyCities and nearbyCities.length > 0 %}
+<div class="nearby-section">
+  <div class="container">
+    <a href="/{{ item.state.slug }}/" style="text-decoration:none">
+      <h3>
+        <i class="ph ph-map-trifold" style="font-size:18px;color:var(--primary)"></i>
+        Find Mini Split Service in Other {{ item.state.name }} Cities
+      </h3>
+    </a>
+    <div class="nearby-links">
+      {% for nc in nearbyCities %}
+      <a href="/{{ item.state.slug }}/{{ nc.slug }}/" class="nearby-link">{{ nc.name }}</a>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+{% endif %}
+
+{# ── CTA ───────────────────────────────────────────────────────────────── #}
+<div class="cta-strip">
+  <div class="container">
+    <h2>Need Fast Mini Split Service in {{ item.city.name }}, {{ item.state.abbr }}?</h2>
+    <p>Our certified HVAC technicians are available 24/7 for same-day diagnostics and emergency mini split repair.</p>
+    <a class="readon orange" href="{{ site.PHONE_HREF }}">
+      <i class="ph ph-phone-call" style="font-size:18px"></i>
+      {{ site.PHONE }} — Free Phone Quote
+    </a>
+  </div>
+</div>
+
+<script>
+  localStorage.setItem('userLoc', JSON.stringify({
+    stateName: "{{ item.state.name }}",
+    stateAbbr: "{{ item.state.abbr }}",
+    stateSlug: "{{ item.state.slug }}",
+    cityName: "{{ item.city.name }}",
+    citySlug: "{{ item.city.slug }}"
+  }));
+</script>
