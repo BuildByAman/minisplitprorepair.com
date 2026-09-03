@@ -7,7 +7,7 @@ pagination:
 permalink: "services/{{ service.slug }}/index.html"
 eleventyComputed:
   title: "{{ service.title }} | Mini Split Repair & Service | Mini Split Pro Repair"
-  description: "Expert {{ service.title | lower }} near you. Call {{ site.PHONE }} for 24/7 same-day emergency mini split repair, diagnostics, and certified ductless service."
+  description: "Reliable {{ service.title | lower }} near you. Call {{ site.PHONE }} for 24/7 same-day emergency mini split repair, diagnostics, and certified ductless service."
   canonical: "{{ site.DOMAIN }}/services/{{ service.slug }}/"
 ---
 
@@ -39,8 +39,8 @@ eleventyComputed:
             {{ service.title }} <span id="svcLocationSpan">Near You</span>
           </h1>
           <p class="description" id="svcBannerDesc">
-            {{ service.description }} At {{ site.BRAND }}, our certified HVAC technicians are standing by 24/7 for
-            expert mini split repair, precision system diagnostics, and same-day mini split service.
+            {{ service.description }} At {{ site.BRAND }}, our certified technicians are available 24/7 for
+            expert mini split repair, precision system diagnostics, and prompt mini split service.
           </p>
           <div class="btn-part">
             <a class="readon orange" href="{{ site.PHONE_HREF }}">
@@ -51,7 +51,7 @@ eleventyComputed:
         </div>
       </div>
       <div class="banner-img-box">
-        <img src="/images/{{ service.image }}" alt="{{ service.title }} by certified local HVAC technicians near you. Call {{ site.BRAND }} for same-day ductless mini split repair." width="580" height="400" loading="eager" fetchpriority="high">
+        <img src="/images/{{ service.image }}" alt="{{ service.title }} by certified local HVAC technician" width="580" height="400" loading="eager" fetchpriority="high">
       </div>
     </div>
   </div>
@@ -68,28 +68,28 @@ eleventyComputed:
             <i class="ph ph-info" style="font-size:13px"></i>
             Specialized Service Overview
           </span>
-          <h2>Expert {{ service.title }} <span id="svcLocH2">Near You</span></h2>
+          <h2>Professional {{ service.title }} <span id="svcLocH2">Near You</span></h2>
           <p>
-            When your home or business requires dependable {{ service.title | lower }} near you,
-            {{ site.BRAND }} delivers industry-leading ductless HVAC craftsmanship and rapid mini split repair. Ductless
-            glitches and error codes can quickly escalate into severe compressor or inverter failure if left unaddressed. Explore all of our
-            <a href="/services/" id="svcAllLink" style="color:var(--primary);text-decoration:underline">professional mini split services</a>.
+            When your home or business requires dependable {{ service.title | lower }},
+            {{ site.BRAND }} provides specialized ductless HVAC expertise and prompt mini split repair. 
+            Addressing unusual sounds, blinking error lights, or reduced airflow promptly helps prevent major compressor or inverter board damage. 
+            Explore our complete catalog of <a href="/services/" id="svcAllLink" style="color:var(--primary);text-decoration:underline">mini split services</a>.
           </p>
           <p>
-            Our licensed technicians utilize digital manifold diagnostic analyzers, electronic leak sensors, and carry
-            OEM replacement parts for all major manufacturers (Mitsubishi, Daikin, Fujitsu, LG, Gree, and more) to fix your system on the first visit. We offer transparent upfront
-            flat-rate pricing with zero hidden fees, and back all our work with a 100% satisfaction guarantee.
+            Our technicians use digital manifold analyzers, electronic leak detectors, and carry replacement parts 
+            for major equipment manufacturers—including Mitsubishi, Daikin, Fujitsu, LG, Gree, and MrCool. 
+            We provide transparent upfront estimates and test system performance thoroughly across both heating and cooling modes.
           </p>
           <div style="margin-top:26px">
             <a class="readon orange" href="{{ site.PHONE_HREF }}">
               <i class="ph ph-phone-call" style="font-size:17px"></i>
-              {{ site.PHONE }} · Book Service Now
+              {{ site.PHONE }} · Request Service
             </a>
           </div>
         </div>
       </div>
       <div class="choose-img">
-        <img src="/images/{{ service.image }}" alt="Professional {{ service.title }} company near you. Certified HVAC technicians providing top-rated mini split repair." width="580" height="400" loading="lazy">
+        <img src="/images/{{ service.image }}" alt="Professional {{ service.title }} service by certified ductless technician" width="580" height="400" loading="lazy">
       </div>
     </div>
   </div>
@@ -99,10 +99,10 @@ eleventyComputed:
 <div class="cta-strip">
   <div class="container">
     <h2 id="svcCtaH2">Need Professional {{ service.title }} Near You?</h2>
-    <p>Don't let climate issues disrupt your comfort. Our certified local HVAC technicians are available 24/7 for emergency mini split repair and same-day service.</p>
+    <p>Don't let climate issues disrupt your indoor comfort. Our certified local technicians are available 24/7 for emergency mini split repair and scheduled service.</p>
     <a class="readon orange" href="{{ site.PHONE_HREF }}">
       <i class="ph ph-phone-call" style="font-size:18px"></i>
-      {{ site.PHONE }} — Speak With A Ductless Expert
+      {{ site.PHONE }} — Speak With A Ductless Specialist
     </a>
   </div>
 </div>

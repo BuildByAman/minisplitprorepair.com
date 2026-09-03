@@ -96,9 +96,9 @@ eleventyComputed:
             Mini Split Repair in <span>{{ state.name }}</span> | 24/7 Service
           </h1>
           <p class="description">
-            The premier authority for certified mini split repair in {{ state.name }}. We provide rapid 24/7 dispatch for 
-            urgent ductless AC repairs, precision new installations, antibacterial cleanings, and reliable mini split service. 
-            Proudly serving all {{ state.cities.length }} cities across {{ state.abbr }}.
+            Looking for certified mini split repair in {{ state.name }}? We provide prompt 24/7 dispatch for 
+            urgent ductless AC repairs, precision new installations, antibacterial cleanings, and dependable mini split service. 
+            Serving {{ state.cities.length }} communities across {{ state.abbr }}.
           </p>
           <div class="btn-part">
             <a class="readon orange" href="{{ site.PHONE_HREF }}">
@@ -156,14 +156,14 @@ eleventyComputed:
 {# ── Services Grid ─────────────────────────────────────────────────────── #}
 <div class="rs-services">
   <div class="container">
-    <h2>Certified Mini Split Repair & Service in {{ state.name }}</h2>
+    <h2>Certified Mini Split Repair &amp; Service in {{ state.name }}</h2>
     <div class="services-row">
       {% for svc in services %}
       <div class="services-slider">
         <div class="services-item">
           <a href="/services/{{ svc.slug }}/" class="card-link" aria-label="View {{ svc.title }}"></a>
           <div class="services-img">
-            <img src="/images/{{ svc.image }}" alt="{{ svc.title }}" width="400" height="250" loading="lazy" class="svc-card-img">
+            <img src="/images/{{ svc.image }}" alt="{{ svc.title }} in {{ state.name }}" width="400" height="250" loading="lazy" class="svc-card-img">
           </div>
           <div class="services-icon-bar">
             <div class="svc-icon">
@@ -180,7 +180,7 @@ eleventyComputed:
             </p>
             <div class="services-btn">
               <a href="{{ site.PHONE_HREF }}">
-                <span class="btn-text">Get Quote</span>
+                <span class="btn-text">Request Quote</span>
                 <span class="arrow-icon">
                   <i class="ph ph-arrow-right" style="font-size:12px"></i>
                 </span>
@@ -199,7 +199,7 @@ eleventyComputed:
   <div class="container">
     <div class="choose-grid">
       <div class="choose-img">
-        <img src="/images/mini-split-outdoor.webp" alt="Professional mini split HVAC technicians in {{ state.name }} equipped with top-tier tools for residential and commercial ductless service." width="580" height="400" loading="lazy">
+        <img src="/images/mini-split-outdoor.webp" alt="Professional mini split HVAC technicians in {{ state.name }} equipped with diagnostic tools for ductless service." width="580" height="400" loading="lazy">
       </div>
       <div>
         <div class="sec-title4">
@@ -208,14 +208,14 @@ eleventyComputed:
             <i class="ph ph-shield-check" style="font-size:13px"></i>
             Why Choose Us
           </span>
-          <h2>Top Rated Ductless HVAC Specialists in {{ state.name }}</h2>
+          <h2>Certified Ductless HVAC Specialists in {{ state.name }}</h2>
           <p>{{ whyChooseContent.p1 }}</p>
           <p>{{ whyChooseContent.p2 }}</p>
           <p>{{ localClimateText }}</p>
           <div style="margin-top:26px">
             <a class="readon orange" href="{{ site.PHONE_HREF }}">
               <i class="ph ph-phone-call" style="font-size:17px"></i>
-              {{ site.PHONE }}
+              {{ site.PHONE }} · Call For Service
             </a>
           </div>
         </div>
@@ -242,7 +242,7 @@ eleventyComputed:
     </h2>
     <div class="faq-grid">
       <div class="faq-img">
-        <img src="/images/mini-split-installation.webp" alt="Frequently asked mini split questions in {{ state.name }}. Certified HVAC technicians answering your ductless AC repair and installation questions." width="580" height="400" loading="lazy">
+        <img src="/images/mini-split-installation.webp" alt="Frequently asked mini split questions in {{ state.name }} answered by certified technicians." width="580" height="400" loading="lazy">
       </div>
       <div class="accordion" itemscope itemtype="https://schema.org/FAQPage">
         {% for faq in faqs %}
@@ -292,7 +292,7 @@ eleventyComputed:
   <div class="container">
     <h2>
       <i class="ph ph-map-trifold" style="font-size:26px;color:var(--primary);margin-right:8px;vertical-align:middle"></i>
-      Find Mini Split Repair & Service Across {{ state.name }} Cities
+      Find Mini Split Repair &amp; Service Across {{ state.name }} Cities
     </h2>
     <div class="addon-row">
       {% for city in state.cities %}
@@ -322,7 +322,7 @@ eleventyComputed:
     <p>Our certified local HVAC technicians are standing by for same day ductless service across all of {{ state.name }}.</p>
     <a class="readon orange" href="{{ site.PHONE_HREF }}">
       <i class="ph ph-phone-call" style="font-size:18px"></i>
-      {{ site.PHONE }} — Call For Free Estimate
+      {{ site.PHONE }} — Call For Immediate Dispatch
     </a>
   </div>
 </div>

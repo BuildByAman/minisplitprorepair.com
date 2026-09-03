@@ -41,20 +41,20 @@ canonical: "https://minisplitprorepair.com/services/"
         <div class="banner-content">
           <div class="sub-label">
             <i class="ph ph-snowflake" style="font-size:12px"></i>
-            Specialized Ductless HVAC Catalog
+            Ductless HVAC Service Catalog
           </div>
           <h1 class="title">
-            Complete Mini Split Repair & <span>Ductless Service</span>
+            Ductless Mini Split Repair &amp; <span>HVAC Services</span>
           </h1>
           <p class="description">
-            {{ site.BRAND }} provides full-spectrum heating and cooling solutions for ductless systems nationwide. 
-            From 24/7 emergency mini split repair and whole-home multi-zone installations to electronic leak detection, 
-            antibacterial deep cleanings, and seasonal maintenance tune-ups. Discover certified mini split service near you.
+            {{ site.BRAND }} delivers comprehensive solutions for single-zone and multi-zone ductless systems nationwide. 
+            From 24/7 emergency mini split repair and precision installations to electronic leak detection, 
+            deep coil sanitization, and preventative maintenance agreements. Connect with certified ductless specialists near you.
           </p>
           <div class="btn-part">
             <a class="readon orange" href="{{ site.PHONE_HREF }}">
               <i class="ph ph-phone-call" style="font-size:17px"></i>
-              {{ site.PHONE }} · Get Free Estimate
+              {{ site.PHONE }} · Call For Service
             </a>
           </div>
         </div>
@@ -66,14 +66,14 @@ canonical: "https://minisplitprorepair.com/services/"
 {# ── Services Grid ─────────────────────────────────────────────────────── #}
 <div class="rs-services">
   <div class="container">
-    <h2>Specialized Ductless Mini Split Services We Deliver</h2>
+    <h2>Specialized Ductless Mini Split Services We Provide</h2>
     <div class="services-row">
       {% for svc in services %}
       <div class="services-slider">
         <div class="services-item">
           <a href="/services/{{ svc.slug }}/" class="card-link" aria-label="View {{ svc.title }}"></a>
           <div class="services-img">
-            <img src="/images/{{ svc.image }}" alt="{{ svc.title }}" width="400" height="250" loading="lazy" class="svc-card-img">
+            <img src="/images/{{ svc.image }}" alt="{{ svc.title }} service by certified HVAC technician" width="400" height="250" loading="lazy" class="svc-card-img">
           </div>
           <div class="services-icon-bar">
             <div class="svc-icon">
@@ -87,7 +87,7 @@ canonical: "https://minisplitprorepair.com/services/"
             <p class="description">{{ svc.description }}</p>
             <div class="services-btn">
               <a href="{{ site.PHONE_HREF }}">
-                <span class="btn-text">Schedule Service</span>
+                <span class="btn-text">Request Service</span>
                 <span class="arrow-icon">
                   <i class="ph ph-arrow-right" style="font-size:12px"></i>
                 </span>
@@ -104,11 +104,11 @@ canonical: "https://minisplitprorepair.com/services/"
 {# ── CTA Strip ─────────────────────────────────────────────────────────── #}
 <div class="cta-strip">
   <div class="container">
-    <h2>Need Same-Day Mini Split Service or Repair? Call Now</h2>
-    <p>Our certified local ductless technicians are available 24/7 for urgent diagnostics and scheduled HVAC appointments.</p>
+    <h2>Need Immediate Mini Split Repair? Call (877) 739-2492 Today</h2>
+    <p>Our certified ductless HVAC specialists are ready 24/7 for same-day emergency mini split repair and scheduled service.</p>
     <a class="readon orange" href="{{ site.PHONE_HREF }}">
       <i class="ph ph-phone-call" style="font-size:18px"></i>
-      {{ site.PHONE }} — Free Phone Quote
+      {{ site.PHONE }} — Speak With A Specialist
     </a>
   </div>
 </div>
